@@ -15,8 +15,6 @@
  */
 package org.japo.java.app;
 
-import java.util.Scanner;
-
 /**
  *
  * @author José A. Pacheco Ondoño - joanpaon@gmail.com
@@ -25,32 +23,27 @@ public class App {
 
     // Entrada al Mecanismo Funcional
     public void launchApp() {
-        // Objeto Scanner
-        Scanner scn = new Scanner(System.in, "ISO-8859-1");
+        // Datos Constantes
+        final String ACR_MODU = "PRG";
+        final int NUM_ALUM = 13;
+        final String APE_ALUM = "Pallarés";
+        final String NOM_ALUM = "JV";
 
-        try {
-            // Acrónimo Módulo
-            System.out.print("Acrónimo módulo ....: ");
-            String acr = scn.nextLine().trim().toUpperCase();
+        // Cabecera
+        System.out.println("DATOS DE ENTREGA");
+        System.out.println("================");
 
-            // Número de lista
-            System.out.print("Número de lista ....: ");
-            int lst = scn.nextInt();
-            scn.nextLine();
+        // Datos individuales
+        System.out.printf("Acrónimo módulo ....: %s%n", ACR_MODU);
+        System.out.printf("Número de lista ....: %s%n", NUM_ALUM);
+        System.out.printf("Primer Apellido ....: %s%n", APE_ALUM);
+        System.out.printf("Inicial(es) nombre .: %s%n", NOM_ALUM);
+        
+        // Separador
+        System.out.println("---");
 
-            // Primer Apellido
-            System.out.print("Primer Apellido ....: ");
-            String ape = scn.nextLine();
-            ape = (ape.charAt(0) + "").toUpperCase() + ape.substring(1).toLowerCase();
-            
-            // Inicial(es) Nombre
-            System.out.print("Inicial(es) nombre .: ");
-            String nom = scn.nextLine().toUpperCase();
-
-            // Código de entrega
-            System.out.printf("Código de entrega ..: %s_%02d_%s%s%n", acr, lst, ape, nom);
-        } catch (Exception e) {
-            System.out.println("ERROR: Entrada incorrecta");
-        }
+        // Código de entrega
+        System.out.printf("Código de entrega ..: %s_%02d_%s%s%n",
+                ACR_MODU, NUM_ALUM, APE_ALUM, NOM_ALUM);
     }
 }
